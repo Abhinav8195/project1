@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
+import AnimatedSection from '../components/AnimatedSection'
+import TrustBadges from './TrustBadges'
 
 const Index = () => {
   return (
@@ -8,6 +10,9 @@ const Index = () => {
         <Navbar />
         <main>
             <Hero />
+             <AnimatedSection>
+          <TrustBadges />
+        </AnimatedSection>
         </main>
     </div>
   )
