@@ -3,6 +3,9 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import AnimatedSection from '../components/AnimatedSection'
 import TrustBadges from './TrustBadges'
+import Features from './Features'
+import HowItWorks from './HowItWorks'
+
 
 const Index = () => {
   return (
@@ -12,6 +15,12 @@ const Index = () => {
             <Hero />
              <AnimatedSection>
           <TrustBadges />
+        </AnimatedSection>
+          <AnimatedSection>
+          <Features />
+        </AnimatedSection>
+        <AnimatedSection>
+          <HowItWorks />
         </AnimatedSection>
         </main>
     </div>
