@@ -110,7 +110,7 @@ export default function LoginPage() {
 
                       <button
                         type="button"
-                        onClick={() => alert("Forgot password coming soon ✅")}
+                        onClick={()=>navigate("/forgot-password")}
                         className="text-sm font-semibold text-emerald-600 hover:text-emerald-700"
                       >
                         Forgot password?

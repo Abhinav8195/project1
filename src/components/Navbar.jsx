@@ -180,7 +180,7 @@ useEffect(() => {
                 onClick={()=>navigate("/start-free-trial")}
                 transition={{ type: "spring", stiffness: 200, damping: 14 }}
                 className="inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold text-white
-                bg-gradient-to-r from-[#12a588] to-[#18c4a1]
+                bg-gradient-to-r from-[#12a588] to-[#18c4a1] cursor-pointer
                 shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200"
               >
                 Start Free Trial

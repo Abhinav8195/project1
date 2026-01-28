@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Clock, Users, CheckCircle2 } from "lucide-react";
 import DemoModal from "./DemoModal";
+import { useNavigate } from "react-router-dom";
 
 const appointments = [
   { time: "09:00 AM", patient: "Sarah Johnson", type: "Dental Checkup", status: "confirmed" },
@@ -31,6 +32,7 @@ const fadeUp = {
 
 export default function Hero() {
   const [demoOpen, setDemoOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -87,6 +89,7 @@ export default function Hero() {
                 <motion.button
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={()=>navigate("/start-free-trial")}
                   className="
                     w-full sm:w-auto
                     inline-flex items-center justify-center rounded-2xl
@@ -95,7 +98,7 @@ export default function Hero() {
                     bg-gradient-to-r from-[#12a588] to-[#18c4a1]
                     shadow-[0_12px_30px_-14px_rgba(18,165,136,0.65)]
                     hover:shadow-[0_16px_45px_-18px_rgba(18,165,136,0.85)]
-                    transition-all duration-200
+                    transition-all duration-200 cursor-pointer
                   "
                 >
                   Start Free Trial

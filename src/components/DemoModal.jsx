@@ -11,6 +11,7 @@ import {
   Stethoscope,
   X,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const doctors = [
   { id: 1, name: "Dr. Sarah Mitchell", specialty: "General Dentist", avatar: "SM" },
@@ -35,6 +36,7 @@ export default function DemoModal({ open, onOpenChange }) {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const navigate = useNavigate();
 
   const resetDemo = () => {
     setStep(1);
@@ -46,6 +48,7 @@ export default function DemoModal({ open, onOpenChange }) {
   const closeModal = () => {
     resetDemo();
     onOpenChange(false);
+   navigate("/start-free-trial")
   };
 
   const nextStep = () => {

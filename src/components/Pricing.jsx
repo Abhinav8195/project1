@@ -1,4 +1,5 @@
 import { Check, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const plans = [
   {
@@ -57,6 +58,8 @@ const plans = [
 ];
 
 export default function Pricing() {
+  const navigate = useNavigate();
+
   return (
     <section
       id="pricing"
@@ -198,41 +201,26 @@ export default function Pricing() {
 
               {/* ✅ Button */}
               <div className="mt-7">
-                {plan.variant === "primary" ? (
-                  <button
-                    className="
-                      w-full inline-flex items-center justify-center
-                      rounded-2xl px-6 py-3.5
-                      text-sm font-bold
-                      bg-white text-[#12a588]
-                      shadow-md hover:shadow-lg
-                      transition-all duration-200
-                      active:scale-[0.98]
-                      cursor-pointer
-                    "
-                  >
-                    {plan.buttonText}
-                  </button>
-                ) : (
-                  <button
-                    className={`
-                      w-full inline-flex items-center justify-center
-                      rounded-2xl px-6 py-3.5
-                      text-sm font-bold
-                      border
-                      transition-all duration-200
-                      active:scale-[0.98]
-                      cursor-pointer
-                      ${
-                        plan.popular
-                          ? "border-white/45 text-white hover:bg-white/10"
-                          : "border-[#12a588]/25 text-[#12a588] bg-white hover:bg-gradient-to-r hover:from-[#12a588] hover:to-[#18c4a1] hover:text-white"
-                      }
-                    `}
-                  >
-                    {plan.buttonText}
-                  </button>
-                )}
+                <button
+                  onClick={() => navigate("/start-free-trial")}
+                  className={`
+                    w-full inline-flex items-center justify-center
+                    rounded-2xl px-6 py-3.5
+                    text-sm font-bold
+                    transition-all duration-200
+                    active:scale-[0.98]
+                    cursor-pointer
+                    ${
+                      plan.variant === "primary"
+                        ? "bg-white text-[#12a588] shadow-md hover:shadow-lg hover:opacity-95"
+                        : plan.popular
+                        ? "border border-white/45 text-white hover:bg-white/10"
+                        : "border border-[#12a588]/25 text-[#12a588] bg-white hover:bg-gradient-to-r hover:bg-green-50 hover:text-[#12a588]"
+                    }
+                  `}
+                >
+                  {plan.buttonText}
+                </button>
 
                 {/* ✅ small note */}
                 <p
