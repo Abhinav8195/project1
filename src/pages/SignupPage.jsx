@@ -196,7 +196,7 @@ export default function SignupPage() {
                       {
                         label: "Doctor Name",
                         icon: <User className="w-4 h-4 text-slate-400" />,
-                        placeholder: "Dr. Ankit Sharma",
+                        placeholder: "Ankit Sharma",
                         value: form.name,
                         onChange: (e) =>
                           setForm((p) => ({ ...p, name: e.target.value })),
