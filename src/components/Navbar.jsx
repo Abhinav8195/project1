@@ -15,31 +15,42 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("#");
   const navigate = useNavigate();
-
-  // ✅ active link (scroll spy lite)
   useEffect(() => {
-    const sections = navLinks
-      .map((l) => document.querySelector(l.href))
-      .filter(Boolean);
+  window.scrollTo(0, 0);
+}, []);
+useEffect(() => {
+  const ids = navLinks.map((l) => l.href.replace("#", ""));
+  const elements = ids
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
 
-    const onScroll = () => {
-      let current = "#";
-      sections.forEach((sec) => {
-        const top = sec.offsetTop - 120;
-        const bottom = top + sec.offsetHeight;
+  if (!elements.length) return;
 
-        if (window.scrollY >= top && window.scrollY < bottom) {
-          current = `#${sec.id}`;
-        }
-      });
-      setActive(current);
-    };
+  // ✅ start: no active by default
+  setActive("#");
 
-    window.addEventListener("scroll", onScroll);
-    onScroll();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+      if (visibleSections.length > 0) {
+        setActive(`#${visibleSections[0].target.id}`);
+      }
+    },
+    {
+      root: null,
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: [0.2, 0.35, 0.5],
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
+
 
   const linkVariants = {
     hidden: { opacity: 0, y: -8 },
