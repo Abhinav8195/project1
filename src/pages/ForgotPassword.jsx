@@ -70,8 +70,7 @@ export default function ForgotPassword() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(18,165,136,0.10),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(24,196,161,0.08),transparent_55%)]" />
 
-        {/* tiny grain effect (premium look) */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:18px_18px]" />
+       
       </div>
 
       <div className="pt-28 pb-14 px-4">
